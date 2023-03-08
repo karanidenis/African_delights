@@ -1,6 +1,7 @@
 # African_delights
 
-                                    ###INTRODUCTION 
+                                    #INTRODUCTION
+                                    ----------------
 
 ##BACKGROUND:
 ----------------
