@@ -1,10 +1,9 @@
 # African_delights
 
-                                    #INTRODUCTION
-                                    ----------------
-
+                                
 ##BACKGROUND:
 ----------------
+
 Varying cultures have different standards for the ingredients, cooking methods, food preservation methods, and food varieties served at various meals. As a result, a large number of tourists and immigrants become unsatisfied.
 
 ##PROBLEM STATEMENT:
