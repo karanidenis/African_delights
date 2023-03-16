@@ -2,66 +2,38 @@ body {
 	margin: 0;
 	padding: 0;
 	font-family: Arial, sans-serif;
-}
-
-header {
+	font-size: 20px;
+  }
+  
+  h1, h2, h3 {
+	margin-top: 0;
+  }
+  
+  .navigation {
+	list-style: none;
 	background-color: #333;
-	height: 70px;
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-}
-
-nav ul {
+	text-align: right;
 	margin: 0;
 	padding: 0;
-	list-style: none;
-	position: absolute;
-	top: 20px;
-	right: 20px;
-}
-
-nav li {
+  }
+  
+  .navigation li {
 	display: inline-block;
-	margin-left: 20px;
-}
-
-nav a {
+	margin: 0 10px;
+  }
+  
+  .navigation li a {
+	display: block;
 	color: #fff;
 	text-decoration: none;
-	font-size: 30px;
-}
-
-main {
-	margin-top: 70px;
-	background-image: url('img/vegetable-salad-with-sliced-chopped-foods-recipe-book-aside.jpg');
-	background-size: contain;
-	background-position: center;
-}
-
-.hero {
-	padding: 100px;
-	text-align: center;
-	color: #fff;
-}
-
-h1 {
-	font-size: 48px;
-	margin-bottom: 20px;
-}
-
-p {
-	font-size: 24px;
-}
-
-footer {
-	background-color: #333;
-	color: #fff;
-	text-align: center;
-	padding: 20px;
-	position: fixed;
-	bottom: 0;
-	left: 0;
-	right: 0;
-}
+	padding: 10px 20px;
+  }
+  
+  .navigation li a:hover {
+	background: #fff;
+	color: #f40c0c;
+  }
+  body {
+	background-image: url("img/vegetable-salad-with-sliced-chopped-foods-recipe-book-aside.jpg");
+	background-repeat: repeat-x;
+  }
