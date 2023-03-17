@@ -5,9 +5,6 @@ body {
 	font-size: 20px;
   }
   
-  h1, h2, h3 {
-	margin-top: 0;
-  }
   
   .navigation {
 	list-style: none;
@@ -16,7 +13,6 @@ body {
 	margin: 0;
 	padding: 0;
   }
-  
   .navigation li {
 	display: inline-block;
 	margin: 0 10px;
@@ -34,6 +30,25 @@ body {
 	color: #f40c0c;
   }
   body {
-	background-image: url("img/vegetable-salad-with-sliced-chopped-foods-recipe-book-aside.jpg");
-	background-repeat: repeat-x;
+	background-image: url("img/home\ page\ 4.jpg");
   }
+  .hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 67vh;
+  color: #0d0c0c;
+}
+.hero :hover {
+	background: #eeecec;
+	color: #c01212;
+}
+.hero h1 {
+	font-style: italic;
+	
+}
+.hero h2 {
+	font-size: larger;
+	color: #fff;
+}
