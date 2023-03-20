@@ -1,4 +1,23 @@
-.about-us .button {
+.about-us {
+    background-color: #4CAF50;
+    padding: 50px;
+    text-align: left;
+    vertical-align: middle;
+    display: inline-block;
+  }
+  
+  .about-us h2 {
+    font-size: 36px;
+    margin-bottom: 10px;
+  }
+  
+  .about-us p {
+    font-size: 18px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+  
+  .about-us .button {
     display: inline-block;
     background-color: #4CAF50;
     color: #fff;
@@ -7,3 +26,12 @@
     text-decoration: none;
     font-size: 18px;
   }
+  img {
+    display:block;
+    max-width: 70%;
+    margin: 0 0 2em 2em;
+    float: right;
+    
+
+  }
+  
