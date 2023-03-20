@@ -3,28 +3,46 @@
 *{
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing:content-box;
   font-family: "Poppins" , sans-serif;
+  
 }
+
 body{
   min-height: 100vh;
   width: 100%;
   background: #c8e8e9;
-  display: flex;
+  /*  */display: flex;
   align-items: center;
   justify-content: center;
+  background: url("choicecon.avif") no-repeat center center/cover;
 }
+
+.section-header {
+    text-align: top;
+    top:0%;
+    margin: 0 auto;
+    padding: 40px 0;
+    font: 300 60px 'Oswald', sans-serif;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 6px;}
+
 .container{
-  width: 85%;
-  background: #fff;
-  border-radius: 6px;
-  padding: 20px 60px 30px 40px;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  width: 75%;
+  background: transparent;
+  border-radius: 0px;
+  padding: 0px 0px 0px 0px;
+  box-shadow: 0 0px 0px transparent;
+  position:relative; left:140px; top:10px;
+  
 }
 .container .content{
   display: flex;
-  align-items: center;
+  align-items: right;
   justify-content: space-between;
+  align-content: right;
+  right:0%;
 }
 .container .content .left-side{
   width: 25%;
@@ -34,9 +52,9 @@ body{
   align-items: center;
   justify-content: center;
   margin-top: 15px;
-  position: relative;
+  position: relative; left:10px; top:5px;
 }
-.content .left-side::before{
+/* .content .left-side::before{
   content: '';
   position: absolute;
   height: 70%;
@@ -45,15 +63,17 @@ body{
   top: 50%;
   transform: translateY(-50%);
   background: #afafb6;
-}
+} */
 .content .left-side .details{
-  margin: 14px;
+  /* margin: 14px; */
   text-align: center;
 }
 .content .left-side .details i{
   font-size: 30px;
   color: #3e2093;
   margin-bottom: 10px;
+  
+  
 }
 .content .left-side .details .topic{
   font-size: 18px;
@@ -67,15 +87,17 @@ body{
 .container .content .right-side{
   width: 75%;
   margin-left: 75px;
+  position: relative; left:50px; top:0px;
 }
 .content .right-side .topic-text{
   font-size: 23px;
   font-weight: 600;
-  color: #3e2093;
+  color: #0e0947;
 }
+
 .right-side .input-box{
   height: 50px;
-  width: 100%;
+  width: 80%;
   margin: 12px 0;
 }
 .right-side .input-box input,
@@ -107,12 +129,12 @@ body{
   border: none;
   padding: 8px 16px;
   border-radius: 6px;
-  background: #3e2093;
+  background: #0e0947;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 .button input[type="button"]:hover{
-  background: #5029bc;
+  background: #28a20c;
 }
 
 @media (max-width: 950px) {
@@ -148,4 +170,3 @@ body{
    margin-left: 0;
  }
 }
-
