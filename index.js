@@ -1,9 +1,9 @@
-// Add a smooth scroll effect to the "About Us" link in the navigation menu
-const aboutLink = document.querySelector('a[href="#about"]');
-
-aboutLink.addEventListener('click', (event) => {
-  event.preventDefault();
-  const aboutSection = document.querySelector('#about');
-  aboutSection.scrollIntoView({ behavior: 'smooth' });
+// Add a hover effect to the Learn More button
+	const learnMoreBtn = document.querySelector('.button');
+	learnMoreBtn.addEventListener('mouseover', function() {
+		  learnMoreBtn.style.backgroundColor = '#3E8E41';
+	});
+learnMoreBtn.addEventListener('mouseout', function() {
+	  learnMoreBtn.style.backgroundColor = '#4CAF50';
 });
 
