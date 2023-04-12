@@ -1,21 +1,168 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Africandelights</title>
-</head>
-<body>
-  <!-- add a dropdown menu -->
-  <div class="dropdown">
-    <button class="dropbtn">Menu</button>
-    <div class="dropdown-content">
-      <a href="#">ingredients</a>
-      <a href="#">Cuisine</a>
-      <a href="#">Image</a>
-      <a href="#">Summary</a>
-      <a href="#">random</a>
-      <a href="#">nutrition</a>
+<html>
 
+<head>
+  <title>African Delights Menu</title>
+  <style>
+    #ingredients-options {
+      display: none;
+    }
+    #cuisine-options {
+      display: none;
+    }
+    #image-options {
+      display: none;
+    }
+    #nutrition-options {
+      display: none;
+    }
+    #summary-options {
+      display: none;
+    }
+    #id-options {
+      display: none;
+    }
+    #random-options {
+      display: none;
+    }
+  </style>
+  <script>
+    function showOptions() {
+      var method = document.getElementById("method").value;
+      var cuisineOptions = document.getElementById("cuisine-options");
+      var ingredientsOptions = document.getElementById("ingredients-options");
+      var imageOptions = document.getElementById("image-options");
+      var nutritionOptions = document.getElementById("nutrition-options");
+      var summaryOptions = document.getElementById("summary-options");
+      var idOptions = document.getElementById("id-options");
+      var randomOptions = document.getElementById("random-options");
+      // if a method is selected/clicked, show the options for that method and hide the others
+      // the options should change as methods are clicked on the menu page
+
+      if (method === "random") {
+        randomOptions.style.display = "block";
+        cuisineOptions.style.display = "none";
+        ingredientsOptions.style.display = "none";
+        imageOptions.style.display = "none";
+        nutritionOptions.style.display = "none";
+        summaryOptions.style.display = "none";
+        equipmentOptions.style.display = "none";
+        queryOptions.style.display = "none";
+        recipeOptions.style.display = "none";
+      }
+      if (method === "Cuisine") {
+        cuisineOptions.style.display = "block";
+        ingredientsOptions.style.display = "none";
+        imageOptions.style.display = "none";
+        nutritionOptions.style.display = "none";
+        summaryOptions.style.display = "none";
+        randomOptions.style.display = "none";
+      } else {
+        Options.style.display = "none";
+      }
+      if (method === "Ingredients") {
+        ingredientsOptions.style.display = "block";
+
+        cuisineOptions.style.display = "none";
+        imageOptions.style.display = "none";
+        nutritionOptions.style.display = "none";
+        summaryOptions.style.display = "none";
+      } else {
+        Options.style.display = "none";
+      }
+      if (method === "image") {
+        cuisineOptions.style.display = "none";
+        ingredientsOptions.style.display = "none";
+        imageOptions.style.display = "block";
+        nutritionOptions.style.display = "none";
+        summaryOptions.style.display = "none";
+      }
+      if (method === "nutrition") {
+        nutritionOptions.style.display = "block";
+      } else {
+        Options.style.display = "none";
+      }
+      if (method === "summary") {
+        summaryOptions.style.display = "block";
+      } else {
+        Options.style.display = "none";
+      }
+      if (method === "id") {
+        idOptions.style.display = "block";
+      } else {
+        Options.style.display = "none";
+      }
+    }
+  </script>
+</head>
+
+<body>
+  <h1>Welcome to African Delights!</h1>
+  <h2>Menu</h2>
+  <form action="/africandelights/" method="post">
+    <label for="method">Select a method:</label>
+    <select name="method" id="method" onchange="showOptions()">
+      <option value="none">Select a method</option>
+      <option value="random">Random Recipe</option>
+      <option value="Cuisine">Search by Cuisine</option>
+      <option value="Ingredients">Search by Ingredients</option>
+      <option value="image">Get an Image</option>
+      <option value="nutrition">Get Nutrition Information</option>
+      <option value="summary">Get Recipe Summary</option>
+      <option value="id">Get recipe by recipe_id</option>
+    </select>
+    <div id="random-options" class="method-options">
+      <p style="color: blueviolet;">Random Recipe</p>
+      <p>For a random recipe, you only need to select the number of recipes</p>
     </div>
+
+    <div id="cuisine-options" class="method-options">
+      <label for="cuisine">Cuisine:</label>
+      <input type="text" name="cuisine" id="cuisine">
+    </div>
+      <br>
+    <div id="ingredients-options" class="method-options">
+      <label for="ingredients">Ingredients:</label>
+      <input type="text" name="ingredients" id="ingredients">
+    </div>
+      <br>
+    <div id="image-options" class="method-options">
+      <input type="text" name="ingredients/meal" id="image">
+    </div>
+      <br>
+    <div id="nutrition-options" class="method-options">
+      <label for="nutrition">Nutrition value:</label>
+      <input type="text" name="nutrition" id="nutrition">
+    </div>
+      <br>
+    <div id="summary-options" class="method-options">
+      <label for="summary">Summary:</label>
+      <input type="text" name="summary" id="summary">
+    </div>
+      <br>
+    <div id="id-options" class="method-options">
+      <label for="id">Recipe ID:</label>
+      <input type="text" name="id" id="id">
+    </div>
+      <br> 
+    <label for="number">Number of Recipes:</label>
+    <input type="number" name="number" id="number" min="1" max="10">
+    <br>
+    <input type="submit" value="Submit">
+  </form>
+  <h2>Results</h2>
+  {% if result %}
+  <h3>Recipes:</h3>
+  <ul>
+    {% for recipe in result %}
+    <!-- <p>{{ recipe }}</p> -->
+      {% for item in recipe %}
+        <p>{{ item }}</p>
+      {% endfor %}
+    {% endfor %}
+
+  </ul>
+  {% endif %}
 </body>
+
 </html>
