@@ -3,13 +3,14 @@
 import re
 import os
 import requests
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 from rich.console import Console
 from rich.text import Text
 
 # #loading the API key from .env file
-load_dotenv()
-api_key = os.getenv("API_KEY")
+# load_dotenv()
+# api_key = os.getenv("API_KEY")
+api_key = "8c824703899e461a83c284dbe5656f8d"
 
 # Setting the API URL and params
 spoonacular_url = "https://api.spoonacular.com/"
@@ -84,7 +85,7 @@ class Food:
             number = args[1]
         else:
             return "Please enter the ingredient and number of recipes"
-        params = {"apiKey": api_key, "query": ingredient, "number": number}
+        params = {"apiKey": api_key, "query": ingredient, "number": number, "addRecipeInformation": True, "fillIngredients": True}
         response = requests.get(spoonacular_url + "recipes/complexSearch", params=params)
         if response.status_code == 200:
             data = response.json()
@@ -124,66 +125,6 @@ class Food:
         else:
             print('Error:', response.status_code)
         
-    def image(self, args):
-        """get recipe image"""
-        if args:
-            ingredient = args[0]
-            number = args[1]
-        else:
-            return "Please enter the recipe ID"
-        params = {"apiKey": api_key, "query": ingredient, "number": number}
-        response = requests.get(spoonacular_url + f"recipes/{ingredient}/information", params=params)
-        if response.status_code == 200:
-            data = response.json()
-            # return data["image"]
-            image = data["image"]
-            # show image on html page only if image source is not empty and starts with http
-            if image and image.startswith("http"):
-                the_image = requests.get(image)
-                if the_image.status_code == 200:
-                    with open("recipe_image.jpg", "wb") as f:
-                        f.write(the_image.content)
-                    return "recipe_image.jpg"
-        else:
-            raise Exception(f"Error: {response.status_code}")
-
-    
-    def summary (self, args):
-        """get recipe summary"""
-        if args:
-            ingredient = args[0]
-            number = args[1]
-        else:
-            return "Please enter the recipe ID"
-        params = {"apiKey": api_key, "query": ingredient, "number": number}
-        if ingredient in self.recipe:
-                response = requests.get(spoonacular_url + f"recipes/{ingredient}/summary", params=params)
-        else:
-            return "Please enter a valid recipe"
-        if response.status_code == 200:
-            data = response.json()
-            return data["summary"]
-        else:
-            raise Exception(f"Error: {response.status_code}")
-        
-    def equipment (self, args):
-        """get recipe equipment"""
-        if args:
-            ingredient = args[0]
-            number = args[1]
-        else:
-            return "Please enter the recipe ID"
-        params = {"apiKey": api_key, "query": ingredient, "number": number}
-        if ingredient in self.recipe:
-                response = requests.get(spoonacular_url + f"recipes/{ingredient}/equipmentWidget.json", params=params)
-        else:
-            return "Please enter a valid recipe"
-        if response.status_code == 200:
-            data = response.json()
-            return data["equipment"]
-        else:
-            raise Exception(f"Error: {response.status_code}")
-        
     def nutrition(self, args):
         """get recipe nutrition"""
         if args:
@@ -191,14 +132,14 @@ class Food:
             number = args[1]
         else:
             return "Please enter the recipe ID"
-        params = {"apiKey": api_key, "query": ingredient, "number": number}
-        if ingredient in self.recipe:
-                response = requests.get(spoonacular_url + f"recipes/{ingredient}/nutritionWidget.json", params=params)
-        else:
-            return "Please enter a valid recipe"
+        params = {"apiKey": api_key, "query": ingredient, "number": number, "addRecipeInformation": True, "fillIngredients": True, "includeNutrition": True}
+        response = requests.get(spoonacular_url + f"recipes/complexSearch?", params=params)
         if response.status_code == 200:
             data = response.json()
-            return data["nutrition"]
+            recipe = []
+            for item in data["results"]:
+                recipe.append((item['title'], item['healthScore'], item['sourceUrl']))
+            return recipe
         else:
             raise Exception(f"Error: {response.status_code}")
          

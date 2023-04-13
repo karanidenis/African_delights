@@ -40,40 +40,15 @@ def get_recipe():
         number = request.form['number'] # this is the number of recipes entered in the text box
         args = (ingredients, number)
         result = food.ingredients(args)
-        
-    elif method == 'image':  # (ingredient, number)
-        ingredients = request.form['ingredients'] # this is the recipe entered in the text box
-        number = request.form['number'] # this is the number of recipes entered in the text box
-        args = (ingredients, number)
-        result = food.image(args)
-        
+
     elif method == 'nutrition':  # (ingredients, number)
         ingredients = request.form['ingredients'] # this is the recipe entered in the text box
         number = request.form['number'] # this is the number of recipes entered in the text box
         args = (ingredients, number)
         result = food.nutrition(args)
-        
-    elif method == 'summary':  # (ingredients, number)
-        ingredients = request.form['ingredients']
-        number = request.form['number']
-        args = (ingredients, number)
-        result = food.summary(args)
-        
-    elif method == 'equipment':  # (ingredients, number)
-        ingredients = request.form['ingredients']
-        number = request.form['number']
-        args = (ingredients, number)
-        result = food.equipment(args)
-        
-    elif method == 'recipe':  # (recipe_id, number)
-        recipe_id = request.form['recipe_id']
-        number = request.form['number']
-        args = (recipe_id, number)
-        result = food.recipe(args)
  
     else:
         result = "No method selected"
-    # string_result = str(result)
     return render_template('menu.html', result=result)
 
 
