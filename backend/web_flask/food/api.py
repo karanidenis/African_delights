@@ -4,8 +4,8 @@ import re
 import os
 import requests
 # from dotenv import load_dotenv
-from rich.console import Console
-from rich.text import Text
+# from rich.console import Console
+# from rich.text import Text
 
 # #loading the API key from .env file
 # load_dotenv()
