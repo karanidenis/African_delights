@@ -1,21 +1,121 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Africandelights</title>
-</head>
-<body>
-  <!-- add a dropdown menu -->
-  <div class="dropdown">
-    <button class="dropbtn">Menu</button>
-    <div class="dropdown-content">
-      <a href="#">ingredients</a>
-      <a href="#">Cuisine</a>
-      <a href="#">Image</a>
-      <a href="#">Summary</a>
-      <a href="#">random</a>
-      <a href="#">nutrition</a>
+<html>
 
+<head>
+  <!-- <a href="https://www.flaticon.com/free-icons/food" title="africandelights"></a> -->
+  <link rel="icon" href="../static/diet.png">
+  <title>African Delights</title>
+  <style>
+    #cuisine-options {
+      display: none;
+    }
+    #nutrition-options {
+      display: none;
+    }
+    #random-options {
+      display: none;
+    }
+    #ingredients-options {
+      display: none;
+    }
+  </style>
+  <script>
+    function showOptions() {
+      var method = document.getElementById("method").value;
+      var cuisineOptions = document.getElementById("cuisine-options");
+      var ingredientsOptions = document.getElementById("ingredients-options");
+      var nutritionOptions = document.getElementById("nutrition-options");
+      var randomOptions = document.getElementById("random-options");
+      // if a method is selected/clicked, show the options for that method and hide the others
+      // the options should change as methods are clicked on the menu page
+      if (method === "none") {
+        cuisineOptions.style.display = "none";
+        ingredientsOptions.style.display = "none";
+        nutritionOptions.style.display = "none";
+        idOptions.style.display = "none";
+        randomOptions.style.display = "none";
+      }
+      if (method === "random") {
+        randomOptions.style.display = "block";
+        cuisineOptions.style.display = "none";
+        ingredientsOptions.style.display = "none";
+        nutritionOptions.style.display = "none";
+        idOptions.style.display = "none";
+      }
+      if (method === "Cuisine") {
+        cuisineOptions.style.display = "block";
+        randomOptions.style.display = "none";
+        ingredientsOptions.style.display = "none";
+        nutritionOptions.style.display = "none";
+      }
+      if (method === "ingredients") {
+        ingredientsOptions.style.display = "block";
+        randomOptions.style.display = "none";
+        cuisineOptions.style.display = "none";
+        imageOptions.style.display = "none";
+        nutritionOptions.style.display = "none";
+        summaryOptions.style.display = "none";
+      }
+      if (method === "nutrition") {
+        nutritionOptions.style.display = "block";
+        randomOptions.style.display = "none";
+        cuisineOptions.style.display = "none";
+        ingredientsOptions.style.display = "none";
+        idOptions.style.display = "none";
+      }
+  } 
+  </script>
+</head>
+
+<body>
+  <h1>Welcome to African Delights!</h1>
+  <h2>Menu</h2>
+  <form action="/africandelights/" method="post">
+    <label for="method">Select a method:</label>
+    <select name="method" id="method" onchange="showOptions()">
+      <option value="none">Select a method</option>
+      <option value="random">Random Recipe</option>
+      <option value="Cuisine">Search by Cuisine</option>
+      <option value="ingredients">Search by Ingredients</option>
+      <option value="nutrition">Get Nutrition Information</option>
+    </select>
+    <div id="random-options" class="method-options">
+      <p style="color: blueviolet;">Random Recipe</p>
+      <p>For a random recipe, you only need to select the number of recipes</p>
     </div>
+
+    <div id="cuisine-options" class="method-options">
+      <label for="cuisine">Cuisine:</label>
+      <input type="text" name="cuisine" id="cuisine">
+    </div>
+      <br>
+    <div id="ingredients-options" class="method-options">
+      <label for="ingredients">Ingredients:</label>
+      <input type="text" name="ingredients" id="ingredients">
+    </div>
+      <br>
+    <div id="nutrition-options" class="method-options">
+      <label for="nutrition">Food items:</label>
+      <input type="text" name="nutrition" id="nutrition">
+    </div>
+    <label for="number">Number of Recipes:</label>
+    <input type="number" name="number" id="number" min="1" max="10">
+    <br>
+    <input type="submit" value="Submit">
+  </form>
+  <h2>Results</h2>
+  {% if result %}
+  <h3>Recipes:</h3>
+  <ul>
+    {% for recipe in result %}
+    <!-- <p>{{ recipe }}</p> -->
+      {% for item in recipe %}
+        <p>{{ item }}</p>
+      {% endfor %}
+    {% endfor %}
+
+  </ul>
+  {% endif %}
 </body>
+
 </html>
