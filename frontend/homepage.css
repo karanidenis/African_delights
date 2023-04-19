@@ -1,0 +1,81 @@
+
+/* Navbar */
+.navbar{
+  list-style: none;
+	background-color:none;
+	text-align: right;
+	margin: 0;
+	padding: 0;
+}
+
+.navbar li{
+  display: inline-block;
+	margin: 0 10px;
+}
+
+.navbar li a{
+  display: block;
+	color: #fff;
+	text-decoration: none;
+	padding: 10px 20px;
+  font-size: large;
+}
+
+.navbar li a:hover{
+  background: #fff;
+	color: #f40c0c;
+}
+
+/* Home Section */
+#home{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    top:0px;
+    bottom:0px;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    
+}
+#home::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: url("home3.jpg") no-repeat center center/cover;
+    height: 900px;
+    width: 100%;
+    z-index: -1;
+    opacity:20;
+}
+.main{
+display: flex;
+  flex-direction: column;
+  justify-content: top;
+  align-items: top;
+  height: 100%;
+  color: #0d0c0c;
+}
+
+.main :hover {
+	background: #eeecec;
+	color: #c01212;
+}
+.main h1 {
+	font-family: snell;
+  font-style: italic;
+  text-align:center;
+  font-size: 30;
+  top: 60px;
+  width: 300px;
+ 	
+}
+.main h2 {
+	font-size: larger;
+	color: #fff;
+  text-align:center;
+  top: 100px;
+  width: 300px;
+}
+

@@ -1,0 +1,41 @@
+#aboutus{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    top:0px;
+    bottom:0px;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    
+}
+#aboutus::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: url("about1.jpg") no-repeat center center/cover;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    opacity: 1;
+} 
+  .h1 {
+    text-align: center;
+    margin: 0 auto;
+    padding: 40px 0;
+    font: 300 60px 'Oswald', sans-serif;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+  }
+  
+  .about-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+    max-width: 840px;}
+  

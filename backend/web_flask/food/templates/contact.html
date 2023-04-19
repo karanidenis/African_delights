@@ -4,7 +4,6 @@
   <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../static/style.css">
-    <!-- CDN Link -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
    </head>
@@ -38,17 +37,18 @@
       </div>
       <div class="right-side">
         <div class="topic-text">Send us a message</div>
-        <p> We would love to help you if you have any questions or comments!</p>
-      <form action="#">
+        <p style="color:rgb(255, 255, 249); font-size: 19px; font-weight: 600;"> We would love to help you if you have any questions or comments!</p>
+    <form id="contact-form" class="form-horizontal" role="form">
         <div class="input-box">
-          <input type="text" placeholder="Enter your name">
+          <input type="text" placeholder="Enter your name" name="name" value="" required>
         </div>
         <div class="input-box">
-          <input type="text" placeholder="Enter your email">
+          <input type="text" placeholder="Enter your email" name="email" value="" required>
         </div>
         <div class="input-box message-box">
-    
+            <input type="text" placeholder="Message" name="message" required>
         </div>
+        
         <div class="button">
           <input type="button" value="Send" >
         </div>
