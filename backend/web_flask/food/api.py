@@ -34,10 +34,12 @@ class Food:
             "cuisine": cuisine,
             "number": number,
             "addRecipeInformation": True,
-            "fillIngredients": True,
+            # "fillIngredients": True,
         }
         response = requests.get(
             spoonacular_url + "recipes/complexSearch", params=params)
+        # print(response.url) # for debugging
+        resp_url = response.url
         if response.status_code == 200:
             data = response.json()
             recipes = []
@@ -49,35 +51,15 @@ class Food:
                 else:
                     if image.startswith('http'):
                         recipes.append(
-                    (items["id"], items["title"], items["sourceUrl"], image))
+                        {'title': items["title"], 'url': items["sourceUrl"], 'image': image, 'resp_url': resp_url})
                     else:
                         recipes.append(
-                            (items["id"], items["title"], items["sourceUrl"]))            
+                        {'title': items["title"], 'url': items["sourceUrl"], 'resp_url': resp_url})
             return recipes
         else:
             raise Exception(f"Error: {response.status_code}")
 
-    def recipe(self, args):
-        """Returns recipe details based on ingredient"""
-        if args:
-            recipe_id = args[0]
-        else:
-            return "Please enter the recipe ID"
-        params = {"apiKey": api_key, "includeNutrition": True}
-        response = requests.get(
-            spoonacular_url + f"recipes/{recipe_id}/information", params=params)
-        if response.status_code == 200:
-            data = response.json()
-            recipe_details = {}
-            recipe_details["title"] = data["title"]
-            recipe_details["image"] = data["image"]
-            recipe_details["sourceUrl"] = data["sourceUrl"]
-            recipe_details["summary"] = self._clean_html_tags(data["summary"])
-            recipe_details["nutrients"] = data["nutrition"]["nutrients"]
-            return recipe_details
-        else:
-            raise Exception(f"Error: {response.status_code}")
-        
+
     def ingredients(self, args):
         """ get recipe details based on ingredient """
         if args:
@@ -85,7 +67,7 @@ class Food:
             number = args[1]
         else:
             return "Please enter the ingredient and number of recipes"
-        params = {"apiKey": api_key, "query": ingredient, "number": number, "addRecipeInformation": True, "fillIngredients": True}
+        params = {"apiKey": api_key, "query": ingredient, "number": number, "addRecipeInformation": True, "fillIngredients": True, 'includeNutrition': True}
         response = requests.get(spoonacular_url + "recipes/complexSearch", params=params)
         if response.status_code == 200:
             data = response.json()
@@ -94,14 +76,14 @@ class Food:
                 image = items["image"]
                 if image is None or not image.startswith('http'):
                     recipes.append(
-                        (items["id"], items["title"], items["sourceUrl"]))
+                    {'title': items["title"], 'url': items["sourceUrl"], 'health': items['veryHealthy'], "nutrition": items["healthScore"]})
                 if image.startswith('http'):
                         recipes.append(
-                            (items["id"], items["title"], items["sourceUrl"], image))
+                            {'title': items["title"], 'url': items["sourceUrl"], 'image': image, 'health': items['veryHealthy'], "nutrition": items["healthScore"]})
             return recipes
         else:
             raise Exception(f"Error: {response.status_code}")
-    
+
     def random(self, args):
         """returns a list of random recipes"""
         if args:
@@ -111,6 +93,7 @@ class Food:
         params = {"apiKey": api_key, "number": number}
         response = requests.get(
             spoonacular_url + "recipes/random", params=params)
+        resp_url = response.url
         if response.status_code == 200:
             data = response.json()
             recipes = []
@@ -119,29 +102,10 @@ class Food:
                 if image:
                     if image.startswith('http'):
                         recipes.append(
-                            (items["id"], items["title"], items["sourceUrl"], image))
-                        print(recipes)
+                            {'title': items["title"], 'url': items["spoonacularSourceUrl"], 'image': image, 'resp_url': resp_url})
             return recipes
         else:
             print('Error:', response.status_code)
-        
-    def nutrition(self, args):
-        """get recipe nutrition"""
-        if args:
-            ingredient = args[0]
-            number = args[1]
-        else:
-            return "Please enter the recipe ID"
-        params = {"apiKey": api_key, "query": ingredient, "number": number, "addRecipeInformation": True, "fillIngredients": True, "includeNutrition": True}
-        response = requests.get(spoonacular_url + f"recipes/complexSearch?", params=params)
-        if response.status_code == 200:
-            data = response.json()
-            recipe = []
-            for item in data["results"]:
-                recipe.append((item['title'], item['healthScore'], item['sourceUrl']))
-            return recipe
-        else:
-            raise Exception(f"Error: {response.status_code}")
          
     def _clean_html_tags(self, text):
         """Clean HTML tags from text"""
@@ -152,13 +116,8 @@ class Food:
 if __name__ == "__main__":
     food = Food()
     # print(food.cuisine("african", 5))
-    # print(food.query("chicken", 5))
-    # print(food.recipe(716429))
     # print(food.ingredient("chicken", 5))
     # print(food.random(5))
-    # print(food.summary(716429))
-    # print(food.equipment(716429))
-    # print(food.nutrition(716429))
 # Usage Example:
 # food = Food()
 # print(food.cuisine("african", 5))

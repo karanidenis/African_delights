@@ -2,14 +2,11 @@
 <html>
 
 <head>
-  <!-- <a href="https://www.flaticon.com/free-icons/food" title="africandelights"></a> -->
+  <link rel="stylesheet" type="text/css" href="../static/menu.css">
   <link rel="icon" href="../static/diet.png">
   <title>African Delights</title>
   <style>
     #cuisine-options {
-      display: none;
-    }
-    #nutrition-options {
       display: none;
     }
     #random-options {
@@ -24,14 +21,11 @@
       var method = document.getElementById("method").value;
       var cuisineOptions = document.getElementById("cuisine-options");
       var ingredientsOptions = document.getElementById("ingredients-options");
-      var nutritionOptions = document.getElementById("nutrition-options");
       var randomOptions = document.getElementById("random-options");
-      // if a method is selected/clicked, show the options for that method and hide the others
-      // the options should change as methods are clicked on the menu page
+      
       if (method === "none") {
         cuisineOptions.style.display = "none";
         ingredientsOptions.style.display = "none";
-        nutritionOptions.style.display = "none";
         idOptions.style.display = "none";
         randomOptions.style.display = "none";
       }
@@ -39,83 +33,140 @@
         randomOptions.style.display = "block";
         cuisineOptions.style.display = "none";
         ingredientsOptions.style.display = "none";
-        nutritionOptions.style.display = "none";
-        idOptions.style.display = "none";
       }
       if (method === "Cuisine") {
         cuisineOptions.style.display = "block";
         randomOptions.style.display = "none";
         ingredientsOptions.style.display = "none";
-        nutritionOptions.style.display = "none";
       }
       if (method === "ingredients") {
         ingredientsOptions.style.display = "block";
         randomOptions.style.display = "none";
         cuisineOptions.style.display = "none";
-        imageOptions.style.display = "none";
         nutritionOptions.style.display = "none";
-        summaryOptions.style.display = "none";
       }
-      if (method === "nutrition") {
-        nutritionOptions.style.display = "block";
-        randomOptions.style.display = "none";
-        cuisineOptions.style.display = "none";
-        ingredientsOptions.style.display = "none";
-        idOptions.style.display = "none";
-      }
-  } 
+  }
   </script>
 </head>
-
+<header>
+  <h1>African Delights</h1>
+</header>
 <body>
+  <div id="nav">
+    <ul>
+      <li><a href="/africandelights/">Home</a></li>
+      <li><a href="/africandelights/about">About Us</a></li>
+      <li><a href="/africandelights/contacts">Contacts</a></li>
+    </ul>
+  </div>
   <h1>Welcome to African Delights!</h1>
   <h2>Menu</h2>
+
+  <div id="description">
+    <p>Here you can search for recipes by cuisine, ingredients, or nutrition information.</p>
+    <p>For a random recipe, you only need to select the number of recipes</p>
+    <p>For a recipe by cuisine, you need to select the cuisine and the number of recipes</p>
+    <p>For a recipe by ingredients, you need to select the ingredients and the number of recipes</p>
+  </div>
+
+  <div id="search">
   <form action="/africandelights/" method="post">
     <label for="method">Select a method:</label>
-    <select name="method" id="method" onchange="showOptions()">
-      <option value="none">Select a method</option>
-      <option value="random">Random Recipe</option>
-      <option value="Cuisine">Search by Cuisine</option>
-      <option value="ingredients">Search by Ingredients</option>
-      <option value="nutrition">Get Nutrition Information</option>
-    </select>
+      <select name="method" id="method" onchange="showOptions()">
+        <option value="none">Select a method</option>
+        <option value="random">Random Recipe</option>
+        <option value="Cuisine">Search by Cuisine</option>
+        <option value="ingredients">Search by Ingredients</option>
+      </select>
+
     <div id="random-options" class="method-options">
       <p style="color: blueviolet;">Random Recipe</p>
       <p>For a random recipe, you only need to select the number of recipes</p>
     </div>
-
+    
     <div id="cuisine-options" class="method-options">
       <label for="cuisine">Cuisine:</label>
       <input type="text" name="cuisine" id="cuisine">
     </div>
       <br>
+
     <div id="ingredients-options" class="method-options">
       <label for="ingredients">Ingredients:</label>
       <input type="text" name="ingredients" id="ingredients">
     </div>
       <br>
-    <div id="nutrition-options" class="method-options">
-      <label for="nutrition">Food items:</label>
-      <input type="text" name="nutrition" id="nutrition">
-    </div>
-    <label for="number">Number of Recipes:</label>
-    <input type="number" name="number" id="number" min="1" max="10">
-    <br>
-    <input type="submit" value="Submit">
-  </form>
-  <h2>Results</h2>
-  {% if result %}
-  <h3>Recipes:</h3>
-  <ul>
-    {% for recipe in result %}
-    <!-- <p>{{ recipe }}</p> -->
-      {% for item in recipe %}
-        <p>{{ item }}</p>
-      {% endfor %}
-    {% endfor %}
 
-  </ul>
-  {% endif %}
+    <label for="number">Number of Recipes:</label>
+    <input type="number" name="number" id="number" min="1" max="15">
+    <br>
+    <input id="submit" type="submit" value="Submit">
+  </form>
+  </div>
+  
+  <div class="display">
+  <div id="random_results">
+     <!-- if the results come from the random method -->
+      {% if randoms %} 
+
+        <h2>Random Recipes</h2>
+        <p>Here are your random recipes</p>
+        <ul>
+          {% for random in randoms %}
+            <li>
+              <p>{{ random.title }}</p>
+              <p id="title">{{ random.title }}</p>
+              <!-- <p>{{ random.url }}</p> -->
+              <div id='image'>
+              <!-- make the url to open on a blank page -->
+              <a href="{{ random.url }}" target="_blank">
+                <img src="{{ random.image }}" alt="{{ random.title }}">
+              </a>
+              </div>
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+  </div>
+
+  <div id="cuisine_results">
+    <!-- if the results come from the cuisine method -->
+      {% if cuisines %}  
+        <h2>Recipes by Cuisine</h2>
+        <p>Here are your recipes by cuisine</p>
+        <ul>
+          {% for cuisine in cuisines %}
+            <li>
+              <p>{{ cuisine.title }}</p>
+              <img src="{{ cuisine.image }}" alt="{{ cuisine.title }}">
+              <a href="{{ cuisine.url }}" target="_blank">{{ cuisine.title }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+  </div>
+
+  <div id="ingredients_results">
+    <!-- if the results come from the ingredients method -->
+      {% if rengredients %}  
+        <h2>Recipes by Ingredients</h2>
+        <p>Here are your recipes by ingredients</p>
+        <ul>
+          {% for ingredient in rengredients %}
+            <li>
+              <p>{{ ingredient.title }}</p>
+              <p> Health Score: {{ ingredient.nutrition }}</p>
+              <p> Healthy: {{ ingredient.health }}</p>
+              <img src="{{ ingredient.image }}" alt="{{ ingredient.title }}">
+              <a href="{{ ingredient.url }}" target="_blank">{{ ingredient.title }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+  </div>
+</div>
 </body>
+<footer>
+  <p>Powered by <a href="https://spoonacular.com/food-api" target="_blank">Spoonacular</a></p>
+</footer>
 
 </html>
