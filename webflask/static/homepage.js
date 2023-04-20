@@ -138,7 +138,7 @@ window.onscroll = function() {
 };
 
 // home page JS
-if (pageTitle.text === "ROSA- Restaurant") {
+if (pageTitle.text === "AFRICAN DELIGHTS") {
     // svg-down smooth scroll
     svgDown.addEventListener("click", () => {
         window.scroll({
