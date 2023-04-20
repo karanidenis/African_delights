@@ -66,7 +66,7 @@ def template():
 @app.route('/africandelights/about')
 def template1():
     """rendering the about page"""
-    return render_template('aboutus.html')
+    return render_template('about.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
