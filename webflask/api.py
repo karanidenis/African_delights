@@ -2,7 +2,7 @@
 """Using spponacular API to get recipes based on ingredients"""
 import re
 import os
-import requests
+import requests 
 # from dotenv import load_dotenv
 # from rich.console import Console
 # from rich.text import Text
