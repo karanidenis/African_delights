@@ -836,6 +836,8 @@ header .arrow-down {
 footer {
     background-color: #121212;
     padding: 60px 20px;
+    width:100%
+   
 }
 footer .text {
     max-width: 500px;
@@ -855,7 +857,7 @@ footer .text p {
 }
 footer .contact-container {
     padding: 40px 0;
-    max-width: 1000px;
+    max-width: 2000px;
     margin: auto;
 }
 footer .contact-container > div {
