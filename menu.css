@@ -1,0 +1,126 @@
+body {
+    font-family: Arial, sans-serif;
+    font-size: larger;
+  background-image: url('menu.png');
+  background-size: cover;
+  text-decoration-color: #4CAF50;
+ 
+  }  
+ 
+  header {
+    background-color: #009688;
+    color: #ffffff;
+    padding: 10px;
+    text-align: center;
+  }
+ 
+  #nav {
+    background-color: #333333;
+    overflow: hidden;
+  }
+ 
+  #nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+ 
+  #nav li {
+    float: left;
+  }
+ 
+  #nav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+ 
+  #nav li a:hover {
+    background-color: #4CAF50;
+  }
+ 
+  #search {
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+    margin: 20px auto;
+    padding: 10px;
+    width: 50%;
+  }
+ 
+  .method-options {
+    margin-top: 10px;
+  }
+ 
+  .method-options label {
+    display: inline-block;
+    width: 100px;
+  }
+ 
+  .method-options input[type="text"],
+  .method-options input[type="number"] {
+    padding: 5px;
+    width: 200px;
+    border-radius: 3px;
+    border: 1px solid #cccccc;
+  }
+ 
+  #submit {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #009688;
+    color: #ffffff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+ 
+  #submit:hover {
+    background-color: #4CAF50;
+  }
+ 
+  .display {
+    margin: 20px auto;
+    width: 50%;
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+    padding: 10px;
+  }
+ 
+  .display h2 {
+    color: #009688;
+    text-align: center;
+  }
+ 
+  .display p {
+    margin: 10px 0;
+  }
+ 
+  #random_results ul,
+  #cuisine_results ul,
+  #ingredients_results ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+ 
+  #random_results li,
+  #cuisine_results li,
+  #ingredients_results li {
+    margin: 10px 0;
+  }
+ 
+  #random_results img,
+  #cuisine_results img,
+  #ingredients_results img {
+    width: 100%;
+    border-radius: 3px;
+    border: 1px solid #cccccc;
+  }
+ 
+  #random_results #title {
+    color: #009688;
+    font-weight: bold;
+    margin-top: 0;
+  }
