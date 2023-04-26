@@ -3,7 +3,6 @@
 
 
 const body = document.querySelector("body"),
-    loader = document.querySelector(".loader-wrap"),
     links = document.querySelectorAll('a[href="#"]'),
     nav = document.querySelector("header nav"),
     navToggle = document.querySelector("header nav .toggle"),
@@ -19,9 +18,6 @@ const body = document.querySelector("body"),
     menuSection = document.querySelector(".menu"),
     fixedImageSection = document.querySelector(".fixed-image"),
     footerSection = document.querySelector("footer"),
-    dotOne = document.querySelector(".dots .one"),
-    dotTwo = document.querySelector(".dots .two"),
-    dotThree = document.querySelector(".dots .three"),
     dots = document.querySelectorAll(".dots > div"),
     logoImage = document.querySelector("header nav .logo img"),
     svgDown = document.querySelector("header .arrow-down"),
@@ -57,12 +53,6 @@ links.forEach(link =>
     })
 );
 
-// toggle hamburger menu button
-navToggle.addEventListener("click", () => {
-    navToggle.classList.toggle("active");
-    navSpanMiddle.classList.toggle("hide");
-    navNavigationBar.classList.toggle("show");
-});
 
 // show active navigationbar li
 navNavigationBarLi.forEach(li =>
@@ -96,7 +86,7 @@ window.onscroll = function() {
         headerText.style.opacity = -window.pageYOffset / 300 + 1;
     }
     // home page JS
-    if (pageTitle.text === "ROSA- Restaurant") {
+    if (pageTitle.text === "AFRICAN DELIGHTS") {
         //change dots background color
         if (window.pageYOffset < headerSection.offsetHeight * 0.5) {
             dots.forEach(dot => dot.classList.remove("black"));
@@ -141,7 +131,7 @@ window.onscroll = function() {
 };
 
 // home page JS
-if (pageTitle.text === "ROSA- Restaurant") {
+if (pageTitle.text === "AFRICAN DELIGHTS") {
     // svg-down smooth scroll
     svgDown.addEventListener("click", () => {
         window.scroll({

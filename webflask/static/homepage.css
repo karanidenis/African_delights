@@ -69,16 +69,10 @@ p {
 
 }
 
-
 .navigation-bar a:hover,
 .navigation-bar a.active {
     color: var(--main-color);
 }
-
-
-
-
-
 
 /*End Global*/
 
@@ -134,33 +128,6 @@ header .text .arrow .left:after, header .text .arrow .right:after, header .text 
     display: inline-block;
 }
 /*End Mutual*/
-
-/*Start Dots*/
-.dots {
-    position: fixed;
-    top: 50%;
-    right: 30px;
-    transform: translate(0,-50%);
-    z-index: 5;
-}
-.dots > div  {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    z-index: 20;
-    margin-bottom: 10px;
-    border: 2px solid #fff;
-}
-.dots .black {
-    border-color: #000;
-}
-.dots .active.black {
-    background-color: #000;
-}
-/*End Dots*/
-
-
-
 
 
 /*Start Home Page*/
@@ -318,15 +285,7 @@ header .svg-down {
     margin-bottom: -12px;
     color: #fff;
 }
-header .arrow-down {
-    width: 70px;
-    height: 50px;
-    bottom: -10px;
-    left: 50%;
-    transform: translate(-50%, 0);
-    z-index: 10;
-    background: url("https://res.cloudinary.com/abdel-rahman-ali/image/upload/v1535988515/arrow-down.png") no-repeat center;
-}
+
 /*End Header*/
 
 /*Start About-Us*/
