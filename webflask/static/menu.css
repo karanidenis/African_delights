@@ -105,20 +105,12 @@ footer p{
 }
 
 /* CSS for each recipe item */
-li {
+/* li {
     flex: 1 1 200px;
-    /* Allow each item to grow and shrink to fit available space, with a minimum width of 200px */
+    Allow each item to grow and shrink to fit available space, with a minimum width of 200px 
     position: relative;
-    /* Set position to relative for the hover effect */
-}
-
-/* CSS for the image */
-img {
-    height: auto;
-    /* Preserve the image's aspect ratio */
-    transition: opacity 0.3s ease-in-out;
-    /* Add transition effect for fade-in effect */
-}
+    Set position to relative for the hover effect 
+} */
 
 /* CSS for the title */
 #title {
@@ -140,13 +132,49 @@ img {
     /* Add transition effect for fade-in effect */
 }
 
-/* CSS for hover effect */
-li:hover img {
-    opacity: 0.7;
-    /* Reduce opacity of image on hover */
+
+#flip-boxa {
+    background-color: transparent;
+    width: 100%;
+    height: 300px;
+    border: 1px solid #f1f1f1;
+    perspective: 1000px;
+    /* Remove this if you don't want the 3D effect */
+}
+/* This container is needed to position the front and back side */
+.flip-box-innera {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
 }
 
-li:hover #title {
-    opacity: 1;
-    /* Set opacity of title to 1 on hover */
+/* Do an horizontal flip when you move the mouse over the flip box container */
+#flip-boxa:hover .flip-box-innera {
+    transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flip-box-fronta,
+.flip-box-backa {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    /* Safari */
+    backface-visibility: hidden;
+}
+
+/* Style the back side */
+.flip-box-backa {
+    background-color: black;
+    color: white;
+    transform: rotateY(180deg);
+}
+li {
+    flex: 1 1 300px;
+    /* Allow each item to grow and shrink to fit available space, with a minimum width of 200px */
+    list-style-type: none;
 }

@@ -15,7 +15,7 @@ body{
   /*  */display: flex;
   align-items: center;
   justify-content: center;
-  background: url("/webflask/static/images/choicecon.avif") no-repeat center center/cover;
+  background: url("choicecon.avif") no-repeat center center/cover;
 }
 
 .section-header {
@@ -92,7 +92,7 @@ body{
 .content .right-side .topic-text{
   font-size: 23px;
   font-weight: 600;
-  color: #17b524;
+  color: #0e0947;
 }
 
 .right-side .input-box{
@@ -129,12 +129,12 @@ body{
   border: none;
   padding: 8px 16px;
   border-radius: 6px;
-  background: #17b524;
+  background: #0e0947;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 .button input[type="button"]:hover{
-  background: #5029bc;
+  background: #28a20c;
 }
 
 @media (max-width: 950px) {

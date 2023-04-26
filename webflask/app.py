@@ -2,19 +2,21 @@
 """rendering the html pages of food app"""
 
 from flask import Flask, render_template, request
-from webflask.api.api import Food
+from spoonacular import Food
 import requests
 
 
 app = Flask(__name__)
 food = Food()
 
-route = '/africandelights/'
-@app.route(route) # this is the home page
+route = '/africandelights/menu'
+@app.route(route)  # this is the home page route
 def home():
     return render_template('menu.html')
 
-@app.route(route, methods=['POST'])
+
+# this is the route for the form
+@app.route('/africandelights/menu', methods=['POST'])
 def get_recipe():
     # this is the method selected from the drop down menu
     method = request.form.get('method')
@@ -58,6 +60,11 @@ def get_recipe():
     else:
         return "No method selected"
 
+@app.route('/africandelights/')
+def homepage():
+    """rendering the home page"""
+    return render_template('homepage.html')
+
 @app.route('/africandelights/contacts')
 def template():
     """rendering the contact page"""
@@ -67,6 +74,7 @@ def template():
 def template1():
     """rendering the about page"""
     return render_template('aboutus.html')
+
 
 if __name__ == '__main__':
     app.run(debug=True)
