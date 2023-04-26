@@ -2,7 +2,7 @@
 """rendering the html pages of food app"""
 
 from flask import Flask, render_template, request
-from api import Food
+from webflask.api.api import Food
 import requests
 
 
@@ -66,7 +66,7 @@ def template():
 @app.route('/africandelights/about')
 def template1():
     """rendering the about page"""
-    return render_template('about.html')
+    return render_template('aboutus.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
