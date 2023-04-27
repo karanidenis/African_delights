@@ -89,7 +89,7 @@ p, .a-CTA, input, header .navigation-bar a, .copyright li, .contact .form form l
 header nav .navigation-bar .underline, header .text .button button:hover, .contact .form form button:hover, .contact .text i:hover {
     background-color: #a96700;
 }
-header .navigation-bar ul li, header .text, .about-us .text, .reservation .text, .menu .box-model, .menu .text, .fixed-image .text, footer, .copyright, .contact .text i {
+header .navigation-bar ul li, header .text, .about-us .text, .recipes .text, .menu .box-model, .menu .text, .fixed-image .text, footer, .copyright, .contact .text i {
     text-align: center;
 }
 header nav, header .navigation-bar ul, .about-us, .reservation, .about-us .image-container, .reservation .image-container, .menu, .menu .menu-image-container, footer .contact-container, .copyright ul, .contact {
