@@ -1,192 +1,178 @@
-<!-- DOCTYPE -->
-<html lang en="en">
-
-<link rel="stylesheet" href="about.css">
+<!DOCTYPE html>
+<html>
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>AFRICAN DELIGHTS</title>
-    <meta name="description" content="African Delights helps improve the travel experience of African tourists and immigrants by addressing the cultural shock they face regarding cuisine.">
-    <meta name="viewport" content="width = device-width, initial-scale = 1, shrink-to-fit = no">
-
-    <!-- image in the root directory -->
-    <link rel="shortcut icon" href="logo_image.jpg">
-
-    <!--Fonts-->
-    <link href="https://fonts.googleapis.com/css?family=Cabin|Herr+Von+Muellerhoff|Source+Sans+Pro" rel="stylesheet">
-    <!--Fonts-->
-
-    <!--FontAwesome-->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
-    <!--FontAwesome-->
-
-    <link rel="stylesheet" href="../static/menu.css">
-    <!-- <link rel="stylesheet" href="../homepage.min.css"> -->
+  <link rel="stylesheet" type="text/css" href="../static/menu.css">
+  <link rel="icon" href="../static/diet.png">
+  <title>African Delights</title>
+  <style>
+    #cuisine-options {
+      display: none;
+    }
+    #random-options {
+      display: none;
+    }
+    #ingredients-options {
+      display: none;
+    }
+  </style>
+  <script>
+    function showOptions() {
+      var method = document.getElementById("method").value;
+      var cuisineOptions = document.getElementById("cuisine-options");
+      var ingredientsOptions = document.getElementById("ingredients-options");
+      var randomOptions = document.getElementById("random-options");
+      
+      if (method === "none") {
+        cuisineOptions.style.display = "none";
+        ingredientsOptions.style.display = "none";
+        idOptions.style.display = "none";
+        randomOptions.style.display = "none";
+      }
+      if (method === "random") {
+        randomOptions.style.display = "block";
+        cuisineOptions.style.display = "none";
+        ingredientsOptions.style.display = "none";
+      }
+      if (method === "Cuisine") {
+        cuisineOptions.style.display = "block";
+        randomOptions.style.display = "none";
+        ingredientsOptions.style.display = "none";
+      }
+      if (method === "ingredients") {
+        ingredientsOptions.style.display = "block";
+        randomOptions.style.display = "none";
+        cuisineOptions.style.display = "none";
+        nutritionOptions.style.display = "none";
+      }
+  }
+  </script>
 </head>
-
-<body>
 <header>
-    <nav>
-        <div class="logo">
-          <img src="../static/images/logo_image.jpg" alt="AD Logo" width="40px" height="40px" position="relative" style="margin-top: -50; margin-right: 10px;">
-        </div>
-        
-        <div class="navigation-bar">
-            <ul>
-                 <!-- <li class="active"><a href="index.html">Home<span class="underline"></span></a></li> -->
-                 <li><a href="/africandelights/home">Home<span class="underline"></span></a></li>
-                 <li><a href="/africandelights/menu">Menu<span class="underline"></span></a></li>
-                 <li><a href="/africandelights/contacts">Contact<span class="underline"></span></a></li>
-            </ul>
-        </div>
-    </nav>
-    <div class="text">
-        <h1 style="margin-top: -60px; margin-left: -150; font-size: 30;">Search Our Menu</h2>
-        <br>
-    
-        <div class="arrow">
-            <span class="left" style="margin-right: 100px;"></span>
-            <i class="fas fa-asterisk" style="margin-left: -80px;"></i>
-            <span class="right" style="margin-right: 140px;"></span>
-        </div>
-
-        <div>
-        <p style=" font-family: source_sans_problack, sans-serif;"> Here you can search for recipes by cuisine, ingredients, 
-            or nutrition information. For a random recipe, you only need to select the number of recipes.For a recipe by cuisine, 
-            you need to select the cuisine and the number of recipes. For a recipe by ingredients, you need to select the
-             ingredients and the number of recipes</p>
-        </div>
-        <br>
+  <h1>African Delights</h1>
 </header>
-<!--End Header-->
+<body>
+  <div id="nav">
+    <ul>
+      <li><a href="/africandelights/">Home</a></li>
+      <li><a href="/africandelights/about">About Us</a></li>
+      <li><a href="/africandelights/contacts">Contacts</a></li>
+    </ul>
+  </div>
+  <h1>Welcome to African Delights!</h1>
+  <h2>Menu</h2>
 
+  <div id="description">
+    <p>Here you can search for recipes by cuisine, ingredients, or nutrition information.</p>
+    <p>For a random recipe, you only need to select the number of recipes</p>
+    <p>For a recipe by cuisine, you need to select the cuisine and the number of recipes</p>
+    <p>For a recipe by ingredients, you need to select the ingredients and the number of recipes</p>
+  </div>
 
-<!-- Start Meet the menu section -->
-<div id="search">
-    <form action="/africandelights/menu" method="post">
-      <label for="method">Select a method:</label>
-        <select name="method" id="method" onchange="showOptions()">
-          <option value="none">Select a method</option>
-          <option value="random">Random Recipe</option>
-          <option value="Cuisine">Search by Cuisine</option>
-          <option value="ingredients">Search by Ingredients</option>
-        </select>
-  
-      <div id="random-options" class="method-options">
-        <p style="color:  #a96700;">Random Recipe</p>
-        <p>For a random recipe, you only need to select the number of recipes</p>
-      </div>
-  
-      <div id="cuisine-options" class="method-options">
-        <label for="cuisine">Cuisine:</label>
-        <input type="text" name="cuisine" id="cuisine">
-      </div>
-        <br>
-  
-      <div id="ingredients-options" class="method-options">
-        <label for="ingredients">Ingredients:</label>
-        <input type="text" name="ingredients" id="ingredients">
-      </div>
-        <br>
-  
-      <label for="number">Number of Recipes:</label>
-      <input type="number" name="number" id="number" min="1" max="15">
+  <div id="search">
+  <form action="/africandelights/menu" method="post">
+    <label for="method">Select a method:</label>
+      <select name="method" id="method" onchange="showOptions()">
+        <option value="none">Select a method</option>
+        <option value="random">Random Recipe</option>
+        <option value="Cuisine">Search by Cuisine</option>
+        <option value="ingredients">Search by Ingredients</option>
+      </select>
+
+    <div id="random-options" class="method-options">
+      <p style="color: blueviolet;">Random Recipe</p>
+      <p>For a random recipe, you only need to select the number of recipes</p>
+    </div>
+
+    <div id="cuisine-options" class="method-options">
+      <label for="cuisine">Cuisine:</label>
+      <input type="text" name="cuisine" id="cuisine">
+    </div>
       <br>
-      <input id="submit" type="submit" value="Submit">
-    </form>
+
+    <div id="ingredients-options" class="method-options">
+      <label for="ingredients">Ingredients:</label>
+      <input type="text" name="ingredients" id="ingredients">
     </div>
-    
-    <div class="display">
-    <div id="random_results">
-       <!-- if the results come from the random method -->
-        {% if randoms %} 
+      <br>
+
+    <label for="number">Number of Recipes:</label>
+    <input type="number" name="number" id="number" min="1" max="15">
+    <br>
+    <input id="submit" type="submit" value="Submit">
+  </form>
+  </div>
   
-          <h2 style="font-family: Arial;" >Random Recipes</h2>
-          <p>Here are your random recipes</p>
-          <ul>
-            {% for random in randoms %}
-              <li>
-                <p>{{ random.title }}</p>
-                <p id="title">{{ random.title }}</p>
-                <!-- <p>{{ random.url }}</p> -->
-                <div id='image'>
-                <!-- make the url to open on a blank page -->
-                <a href="{{ random.url }}" target="_blank">
-                  <img src="{{ random.image }}" alt="{{ random.title }}">
-                </a>
-                </div>
-              </li>
-            {% endfor %}
-          </ul>
-        {% endif %}
-    </div>
-  
-    <div id="cuisine_results">
-      <!-- if the results come from the cuisine method -->
-        {% if cuisines %}  
-        <h2 style="font-family: Arial; ">Recipes by Cuisine</h2>
-          <p>Here are your recipes by cuisine</p>
-  
-          <ul style="display: flex;">
-            {% for cuisine in cuisines %}
-              <li>
-                <div id="flip-boxa">
-                  <div class="flip-box-innera">
-                    <div class="flip-box-fronta">
-                      <img src="{{ cuisine.image }}" alt="{{ cuisine.title }}" style="height: 300px; width: 100%;">
-                    </div>
-                  <div class="flip-box-backa">
-                      <a href="{{ cuisine.url }}" target="_blank"> {{ cuisine.title }} </a>
-                  </div>
+  <div class="display">
+  <div id="random_results">
+     <!-- if the results come from the random method -->
+      {% if randoms %} 
+
+        <h2>Random Recipes</h2>
+        <p>Here are your random recipes</p>
+        <ul>
+          {% for random in randoms %}
+            <li>
+              <p>{{ random.title }}</p>
+              <p id="title">{{ random.title }}</p>
+              <!-- <p>{{ random.url }}</p> -->
+              <div id='image'>
+              <!-- make the url to open on a blank page -->
+              <a href="{{ random.url }}" target="_blank">
+                <img src="{{ random.image }}" alt="{{ random.title }}">
+              </a>
               </div>
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+  </div>
+
+  <div id="cuisine_results">
+    <!-- if the results come from the cuisine method -->
+      {% if cuisines %}  
+        <h2>Recipes by Cuisine</h2>
+        <p>Here are your recipes by cuisine</p>
+
+        <ul style="display: flex;">
+          {% for cuisine in cuisines %}
+            <li>
+              <div id="flip-boxa">
+                <div class="flip-box-innera">
+                  <div class="flip-box-fronta">
+                    <img src="{{ cuisine.image }}" alt="{{ cuisine.title }}" style="height: 300px; width: 100%;">
+                  </div>
+                <div class="flip-box-backa">
+                    <a href="{{ cuisine.url }}" target="_blank"> {{ cuisine.title }} </a>
+                </div>
             </div>
-              </li>
-            {% endfor %}
-          </ul>
-        {% endif %}
-    </div>
-  
-    <div id="ingredients_results">
-      <!-- if the results come from the ingredients method -->
-        {% if rengredients %}  
-        <h2 style="font-family: Arial;">Recipes by Ingredients</h2>
-          <p>Here are your recipes by ingredients</p>
-          <ul>
-            {% for ingredient in rengredients %}
-              <li>
-                <p>{{ ingredient.title }}</p>
-                <p> Health Score: {{ ingredient.nutrition }}</p>
-                <p> Healthy: {{ ingredient.health }}</p>
-                <img src="{{ ingredient.image }}" alt="{{ ingredient.title }}">
-                <a href="{{ ingredient.url }}" target="_blank">{{ ingredient.title }}</a>
-              </li>
-            {% endfor %}
-          </ul>
-        {% endif %}
-    </div>
+          </div>
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
   </div>
-  </body>
 
-
-<!-- End meet the menu section -->
-
-
-<!--Start Copy-Right-->
-  <div class="copyright">
-      <svg class="svg-up" width="192" height="61" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 160.7 61.5" enable-background="new 0 0 160.7 61.5" xml:space="preserve"><path fill="#262526" d="M80.3,61.5c0,0,22.1-2.7,43.1-5.4s41-5.4,36.6-5.4c-21.7,0-34.1-12.7-44.9-25.4S95.3,0,80.3,0c-15,0-24.1,12.7-34.9,25.4S22.3,50.8,0.6,50.8c-4.3,0-6.5,0,3.5,1.3S36.2,56.1,80.3,61.5z"></path></svg>
-      <i class="fas fa-angle-double-up arrow-up"></i>
-      <ul class="info">
-          <li>&copy; African Delights 2023</li>
-          <li>Nairobi, Kenya</li>
-          <li>Tel: +254 705 982 470</li>
-     </ul>
-      <ul class="CTA">
-          <li><a href="#">PERMISSIONS AND COPYRIGHT</a></li>
-          <li><a href="#">CONTACT THE TEAM</a></li>
-      </ul>
+  <div id="ingredients_results">
+    <!-- if the results come from the ingredients method -->
+      {% if rengredients %}  
+        <h2>Recipes by Ingredients</h2>
+        <p>Here are your recipes by ingredients</p>
+        <ul>
+          {% for ingredient in rengredients %}
+            <li>
+              <p>{{ ingredient.title }}</p>
+              <p> Health Score: {{ ingredient.nutrition }}</p>
+              <p> Healthy: {{ ingredient.health }}</p>
+              <img src="{{ ingredient.image }}" alt="{{ ingredient.title }}">
+              <a href="{{ ingredient.url }}" target="_blank">{{ ingredient.title }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
   </div>
-  <!--End Copy-Right-->
-
-      <script src="../static/menu.j"></script>
+</div>
 </body>
+<!-- <footer>
+  <p>Powered by <a href="https://spoonacular.com/food-api" target="_blank">Spoonacular</a></p>
+</footer> -->
 </html>
