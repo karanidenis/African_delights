@@ -4,26 +4,20 @@ body {
     padding:0;
     margin-top:0;
     margin-bottom: 30;
-    background-image: url(https://img.freepik.com/free-photo/acorns-foliage-blackboard_23-2147687127.jpg?w=740&t=st=1682637706~exp=1682638306~hmac=e0c30682f77ccf4ae993b45e5a67efb5ee2926ea99da695c8f1f00caf2f361e9);
+    background-image: url(https://img.freepik.com/free-photo/plate-with-tableware-vegetables_23-2147694056.jpg?w=360&t=st=1682658405~exp=1682659005~hmac=87628b4ea5b2f847f57d0ee1beca80c2e2bfedbc6774f283603e13df91dcd3a3);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
+    opacity: 0.7;
 
 
 }
   
-  
-  svg {
-    width:32px;
-    height:32px;
-    fill:#fff;
-  }
-  
-  .about__section {
-    width:700px;
+    .about__section {
+    width:670px;
     margin:auto;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
     margin-top: 20px;
     
    
@@ -141,7 +135,7 @@ body {
     font-family:"Typo Grotesk",sans-serif;
     font-size:20px;
     font-weight:800;
-    color:#424242;
+    color:#a96700;
     margin-bottom:0px;
     margin-top:10px;
     
@@ -615,12 +609,12 @@ footer .newsletter i {
     padding: 15px 40px 30px;
     background-color: #262526;
 }
-/* .copyright .svg-up {
+.copyright .svg-up {
     top: 0;
     left: 50%;
     margin-left: -96px;
     margin-top: -50px;
-} */
+}
 .copyright .arrow-up {
     width: 40px;
     height: 30px;
