@@ -1,17 +1,167 @@
-header {
+/* header {
     width: 100%;
     height: 100px;
-    background-color: goldenrod;
+    background-color:transparent;
     border-bottom: 1px solid black;
-}
+} */
 
-header h1{
-    font-family: 'Pacifico', cursive;
+/* header h1{
+    font-family: Cabin , sans-serif;
     font-size: 2em;
     color: #fff;
     text-align: center;
     padding-top: 30px;
+} */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing:content-box;
+  font-family: Cabin , sans-serif;
+  
 }
+
+
+body {
+    padding:0;
+    margin-top:0;
+    margin-bottom: 30;
+    /* background-color: #b8aeae; */
+    background-image: url(https://img.freepik.com/free-photo/abstract-textured-backgound_1258-30542.jpg?size=626&ext=jpg&ga=GA1.1.1885019555.1682969927&semt=ais);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    }
+
+ 
+
+header {
+    height: calc(70vh - 22px);
+    background-size: cover;
+    padding: 10px 70px;
+    background-position: center;
+    margin-bottom: -400px;
+  }
+
+
+  .navigation-bar a {
+    font-size: 1.7rem;
+    color: var(--text-color);
+    margin-left: 4rem;
+    transition: .3s;
+  
+  }
+  
+  .navigation-bar a:hover,
+  .navigation-bar a.active {
+    color: var(--main-color);
+  }
+  
+
+  p, .a-CTA, input, header .navigation-bar a, .copyright li {
+    font-family: Cabin, sans-serif;
+  }
+   .a-CTA, header .navigation-bar a:hover, header nav.active .navigation-bar a:hover,  .copyright .info li a, .copyright .CTA li a:hover {
+    color: #a96700;
+  }
+  header nav .navigation-bar .underline, header .text .button button:hover {
+    background-color: #a96700;
+  }
+  header .navigation-bar ul li{
+    text-align: relative;
+  }
+  
+  .copyright{
+    text-align: center;
+  }
+
+  header nav.active, header nav.active .toggle.active span, header nav .toggle span, header .navigation-bar .underline {
+    background-color: #fff;
+  }
+  h3, header .navigation-bar a, header .text span {
+    color: #fff;
+  }
+  header nav, header .navigation-bar.show, header .navigation-bar a:hover .underline, header .navigation-bar li.active .underline, .copyright .arrow-up {
+    left: 0;
+  }
+   header .text span, .copyright .arrow-up {
+    display: inline-block;
+  }
+
+  header nav .toggle, header .navigation-bar .underline {
+    position: absolute;
+  }
+  
+  header nav, header .navigation-bar a:hover .underline, header .navigation-bar li.active .underline {
+    width: 100%;
+  }
+  header nav .toggle, .copyright .arrow-up {
+    cursor: pointer;
+  }
+
+  header nav, header .navigation-bar ul, .copyright ul {
+    display: flex;
+  }
+  header nav .toggle, header nav .toggle span, header .navigation-bar, header .navigation-bar ul, .copyright .CTA li a {
+    transition: .3s;
+  }
+
+  
+
+header nav .logo {
+    flex-basis: 50%;
+    padding-left: 20px;
+  }
+  /* header .navigation-bar.show {
+    width: 40%;
+    display: flex;
+  } */
+
+  header .navigation-bar.show a {
+    color: #ccc !important;
+  }
+  header .navigation-bar.show a:hover {
+    color: #fff !important;
+  }
+  header .navigation-bar ul li {
+    flex: 1;
+    padding: 0 10px;
+  }
+  header .navigation-bar a {
+    text-decoration: none;
+    transition: all .5s;
+    font-size: 16px;
+  }
+  header nav.active .navigation-bar a {
+    color: #000;
+  }
+  header .navigation-bar .underline {
+    height: 2px;
+    width: 0;
+    left: 50%;
+    bottom: -4px;
+    transition: all .3s;
+    display: block;
+  }
+  
+  header .logo{
+    height: 1px;
+    width:1px;
+    top: 10%;
+  
+  }
+  
+  
+  header .text {
+    top: 40%;
+    margin-top: 0px;
+    margin-left: 30px; 
+    
+  }
+  
+  /*End Home Page Responsive*/
+
 body h1 {
     font-family: 'Pacifico', cursive;
     font-size: 2em;
@@ -52,10 +202,10 @@ body #search {
     margin-right: 30px;
 }
 body p{
-    font-family: 'Pacifico', cursive;
-    font-size: 1.5em;
+    font-family: Cabin , sans-serif;
+    font-size: 1.2em;
     color: black;
-    /* text-align: center; */
+    text-align: center;
     margin-top: auto 30px;
     /* padding-top: 20px; */
 }
@@ -79,20 +229,6 @@ body #center p{
     margin-left: 60px;
 }
 
-footer{
-    width: 100%;
-    height: 50px;
-    background-color: wheat;
-    border-top: 1px solid black;
-    position: fixed;
-    bottom: 0;
-}
-footer p{
-    font-family: 'Pacifico', cursive;
-    font-size: 1.5em;
-    color: black;
-    text-align: center;
-}
 
 /* CSS for the container div */
 #display {
@@ -177,4 +313,107 @@ li {
     flex: 1 1 300px;
     /* Allow each item to grow and shrink to fit available space, with a minimum width of 200px */
     list-style-type: none;
+}
+
+
+.copyright {
+    padding: 15px 40px 30px;
+    background-color: #262526;
+    margin-top: 100px;
+    margin-bottom: -100px;
+  }
+  
+ 
+  .copyright ul {
+    justify-content: center;
+  }
+  .copyright li {
+    color: #919191;
+    font-size: 14px;
+  }
+  .copyright li:not(:last-of-type):after {
+    content: '•';
+    margin: 10px;
+  }
+  .copyright .CTA {
+    margin-top: 25px;
+  }
+  .copyright .CTA li a {
+    color: #919191;
+  }
+  
+  /*End Footer*/
+  
+  
+  @media (max-width: 992px) {
+    body {
+        padding: 0;}
+    }
+  
+    header {
+        height: calc(100vh - 10px);
+    }
+    header nav .logo {
+        padding-left: 0;
+    }
+   
+  
+  @media (max-width: 768px) {
+    header nav {
+        display: block;
+        text-align: center;
+        left: 0;
+        top: 0;
+        width: 100%;
+        padding-top: 25px;
+    }
+    /* header nav .toggle {
+        display: block;
+    } */
+    header .navigation-bar {
+        position: fixed;
+        top: 0;
+        left: -174px;
+        height: 100%;
+        background-color: #262526;
+        overflow: hidden;
+        z-index: 20;
+        padding: 40px;
+    }
+    header .navigation-bar ul {
+        display: block;
+        padding-top: 40px;
+    }
+    header .navigation-bar ul li {
+        text-align: left;
+        padding: 14px 0;
+    }
+   
+    .copyright ul {
+        display: block;
+        margin-top: -20px;
+    }
+    .copyright li {
+        margin-bottom: 5px;
+    }
+    .copyright li:not(:last-of-type):after {
+        content: '';
+    }
+  }
+
+  
+  
+  @media (max-width: 576px) {
+    h3, h1 {
+        font-size: 40px;
+    }
+    h2 {
+        font-size:90px
+    }
+    header {
+        padding: 0;
+    }
+    header nav .logo {
+        padding-left: 0;
+    }
 }
